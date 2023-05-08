@@ -1,0 +1,16 @@
+{
+  "total": 26,
+  "data": [
+    
+  ],
+  "footer": [
+    {
+      "MatName": "本页",
+      "MatCfy": "<table class='footSumTable'><tr><td><span><span name='spansFYYC'>总金额：</span>0</td><td><span>过期食材数：0</td></tr></table>"
+    },
+    {
+      "MatName": "全部",
+      "MatCfy": "<table class='footSumTable'><tr><td><span><span name='spansFYYC'>总金额：</span>0</td><td><span>过期食材数：0</td></tr></table>"
+    }
+  ]
+}

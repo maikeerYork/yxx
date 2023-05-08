@@ -1,0 +1,15 @@
+{
+  "total": 11435,
+  "data": [],
+  "footer": [{
+    "SupplierName": "本页数量合计",
+    "InRepoTime": "\u003cspan class=\u0027red\u0027\u003e0\u003c/span\u003e",
+    "RecivedPerson": "总数量",
+    "PurchaseType": "\u003cspan class=\u0027red\u0027\u003e0\u003c/span\u003e"
+  }, {
+    "SupplierName": "本页总价合计",
+    "InRepoTime": "\u003cspan class=\u0027red\u0027\u003e0\u003c/span\u003e",
+    "RecivedPerson": "总金额",
+    "PurchaseType": "\u003cspan class=\u0027red\u0027\u003e0\u003c/span\u003e"
+  }]
+}

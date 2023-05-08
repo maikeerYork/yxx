@@ -1,0 +1,20 @@
+{
+  "total": 2124,
+  "data": [
+    
+  ],
+  "footer": [
+    {
+      "ProSerial": "本页数量合计",
+      "OutForUse": "<span class='red'>0</span>",
+      "Picker": "总数量",
+      "OutRepoPerName": "<span class='red'>0</span>"
+    },
+    {
+      "ProSerial": "本页总价合计",
+      "OutForUse": "<span class='red'>0</span>",
+      "Picker": "总金额",
+      "OutRepoPerName": "<span class='red'>0</span>"
+    }
+  ]
+}
