@@ -1,0 +1,604 @@
+
+@charset "UTF-8";
+/* padding、margin */
+@for $num from 1 to 6 {
+    @each $preffix in padding, margin { // 前缀
+        @each $suffix in top, right, bottom, left { // 后缀
+          .#{$preffix}-#{$suffix}-#{$num}0 {
+            #{$preffix}-#{$suffix}: #{$num*10}px;
+          }
+        }
+        .#{$preffix} {
+          &-#{$num}0{
+            #{$preffix}: #{$num*10}px;
+          }
+          &-tb-#{$num}0 {
+            #{$preffix}: #{$num*10}px 0;
+          }
+          &-lr-#{$num}0 {
+            #{$preffix}: 0 #{$num*10}px;
+          }
+        }
+    }
+}
+/* 文本对齐 */
+//$align : left,center, right, justify;
+@each $var in left,center, right, justify {
+  .text-#{$var} {
+    text-align: $var !important;
+  }
+  .text-last-#{$var} {
+    text-align-last: $var !important;
+  }
+}
+
+/* overflow */
+@each $var in hidden, scroll, auto, inherit {
+  .overflow-#{$var} {
+    overflow: $var;
+  }
+  .overflow-x-#{$var} {
+    overflow-x: $var;
+  }
+  .overflow-y-#{$var} {
+    overflow-y: $var;
+  }
+}
+
+/* 浮动 */
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.clearf {
+  clear: both;
+}
+
+/* 显示 */
+@each $var in inline, block, inline-block, none {
+  .d-#{$var}{
+    display: $var;
+  }
+}
+.hidden{
+  visibility: hidden;
+}
+
+/* 定位 */
+@each $var in fixed, relative, absolute, sticky {
+  .#{$var} {
+    position: $var;
+  }
+}
+@for $num from 1 to 5 {
+  @each $var in left, right, top, bottom {
+    .#{$var}-#{$num}0 {
+      #{$var}: #{$num*10}px;
+    }
+  }
+}
+
+
+
+/* flex 布局 */
+.flex- {
+  &row{
+    display: -webkit-flex;
+    display: flex;
+  }
+  &column{
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+  }
+  &row-r{
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  &column-r{
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  &wrap{
+    flex-wrap: wrap;
+  }
+  &nowrap{
+    flex-wrap: nowrap;
+  }
+  &wrap-r{
+    flex-wrap: wrap-reverse;
+  }
+
+  &grow-1{
+    flex-grow: 1;
+  }
+  &shrink-0{
+    flex-shrink: 0;
+  }
+}
+.justify-{
+  &center{
+    justify-content: center;
+  }
+  &end{
+    justify-content: flex-end;
+  }
+  &start{
+    justify-content: flex-start;
+  }
+  &between{
+    justify-content: space-between;
+  }
+  &around{
+    justify-content: space-around;
+  }
+}
+.align-{
+  &center{
+    align-items: center;
+  }
+  &start{
+    align-items: flex-start;
+  }
+  &end{
+    align-items: flex-end;
+  }
+  &baseline{
+    align-items: baseline;
+  }
+}
+.align-content-{
+  &center{
+    align-content: center;
+  }
+  &start{
+    align-content: flex-start;
+  }
+  &end{
+    align-content: flex-end;
+  }
+  &between{
+    align-content: space-between;
+  }
+  &around{
+    align-content: space-around;
+  }
+}
+.self-{
+  &center{
+    align-self: center;
+  }
+  &start{
+    align-self: flex-start;
+  }
+  &end{
+    align-self: flex-end;
+  }
+  &baseline{
+    align-self: baseline;
+  }
+  &stretch{
+    align-self: stretch ;
+  }
+}
+.flex-1{
+  flex: 1;
+}
+/* 水平居中 */
+// 用于父容器，子容器是行内元素
+.level-center-box{
+  text-align: center;
+}
+// 用于需要被居中的容器
+.level-center{
+  display: inline-block;
+  margin: auto;
+}
+// 定位
+.position-{
+  &r{
+    position: relative !important;
+  }
+  &a{
+    position: absolute !important;
+  }
+  &f{
+    position: fixed !important;
+  }
+  &st{
+    position: static !important;
+  }
+  &sy{
+    position: sticky !important;
+  }
+}
+.overflow-{
+  &y-s{
+   overflow-y: scroll;
+  }
+}
+//字体加粗
+
+
+// 字体大小
+@for $i from 1 through 100 {
+  .font-size-#{$i} { font-size: 1px * $i !important; }
+}
+//圆角边框
+@for $i from 1 through 200 {
+  .border-radius-#{$i} { border-radius: 1px * $i !important; }
+  .br-#{$i} { border-radius: 1% * $i !important; }
+}
+// 宽度百分之百
+.w-auto {width: auto !important;}
+
+@for $i from 0 through 100 {
+  // 宽度 百分比
+  .w-#{$i} { width:  1% * $i !important; }
+  // 高度 百分比
+  .h-#{$i} { height:  1% * $i !important; }
+  .height-#{$i}-vh { height:  1vh * $i !important; }
+  .max-height-#{$i}-vh { max-height:  1vh * $i !important; }
+}
+// 隐藏
+.d-none {display: none !important;}
+//显示  以块级元素的形式
+.d-block {display: block !important;}
+// 隐藏 但还在文档流中
+.v-hidden {visibility: hidden !important;}
+// 去掉卡片的阴影
+.box-shadow-none {box-shadow: none !important;}
+// 列表
+.list-style-none {list-style: none !important;}
+// 宽度 固定像素
+@for $i from 0 through 1920 {
+  .width-#{$i} { width:  1px * $i !important; }
+  .max-width-#{$i} { max-width:  1px * $i !important; }
+  .min-width-#{$i} { min-width:  1px * $i !important; }
+}
+//高度 固定像素
+@for $i from 0 through 1080 {
+  .height-#{$i} { height:  1px * $i !important; }
+  .max-height-#{$i} { max-height:  1px * $i !important; }
+  .min-height-#{$i} { min-height:  1px * $i !important; }
+  .line-height-#{$i} { line-height:  1px * $i !important; }
+}
+// 边距
+@for $i from 0 through 200 {
+  // 外边距
+  .mb-#{$i} { margin-bottom:  1px * $i !important; }
+  .mr-#{$i} { margin-right:  1px * $i !important; }
+  .ml-#{$i} { margin-left:  1px * $i !important; }
+  .mt-#{$i} { margin-top:  1px * $i !important; }
+  .m-#{$i} { margin:  1px * $i !important; }
+  // 内边距
+  .pb-#{$i} { padding-bottom:  1px * $i !important; }
+  .pr-#{$i} { padding-right:  1px * $i !important; }
+  .pl-#{$i} { padding-left:  1px * $i !important;  }
+  .pt-#{$i} { padding-top:  1px * $i !important; }
+  .p-#{$i} { padding:  1px * $i !important; }
+}
+
+// 文字位置
+// 取消下划线 常用于a标签
+.text-d-none {text-decoration: none !important;}
+//加上下划线
+.text-d-u {text-decoration: underline !important;}
+// 加粗
+.font-w-b {font-weight: bold !important;}
+//取消加粗
+.font-w-n {font-weight: normal !important;}
+//文字颜色
+.text-white {color: #fff !important;}
+.text-black {color: #000 !important;}
+// 文字颜色elemnet ui----------------------------开始
+.el-text-primary {color: #1989fa !important;}
+.el-text-danger {color: #F56C6C !important;}
+.el-text-success {color: #67C23A !important;}
+.el-text-warning {color: #E6A23C !important;}
+.el-text-info {color: #909399 !important;}
+.el-text-success1 {color: #34E631 !important;}
+// 文字颜色elemnet ui----------------------------结束
+// 文字颜色layui主题------------------------------开始
+.text-red {color:red !important;}
+// 橙色
+.layui-text-orange {color: #FFB800 !important;}
+// 墨绿
+.layui-text-green {color: #009688 !important;}
+// 藏青
+.layui-text-cyan {color: #2F4056 !important;}
+// 蓝色
+.layui-text-blue {color: #1E9FFF !important;}
+// 深蓝色 
+.layui-text-darkblue {color: rgba(15, 64, 245, 100) !important;}
+// 雅黑
+.layui-text-black {color: #393D49 !important;}
+// 银灰
+.layui-text-gray {color: #FAFAFA !important;}
+.layui-text-light-gray {color:#959595 !important;}
+// 文字颜色layui主题------------------------------结束
+// 背景色
+.bg-white {background: white !important;}
+.bg-black {background: black !important;}
+//背景  element----------------------------------开始
+.el-bg-primary {background: #409EFF !important;}
+.el-bg-danger {background: #F56C6C !important;}
+.el-bg-success {background: #67C23A !important;}
+.el-bg-warning {background: #E6A23C !important;}
+.el-bg-info {background: #909399 !important;}
+//背景  element----------------------------------结束
+// 背景颜色 layui---------------------------------开始
+//赤色
+.layui-bg-red {background: #FF5722 !important;}
+// 橙色
+.layui-bg-orange {background: #FFB800 !important;}
+// 墨绿
+.layui-bg-green {background: #009688 !important;}
+.layui-bg-green1 {background: #009688 !important;}
+// 藏青
+.layui-bg-cyan {background: #2F4056 !important;}
+// 蓝色
+.layui-bg-blue {background: #1E9FFF !important;}
+// 雅黑
+.layui-bg-black {background: #393D49 !important;}
+// 银灰
+.layui-bg-gray {background: #FAFAFA !important;}
+// 深蓝色
+.layui-bg-darkblue {background: #0F40F5 !important;}
+// 背景颜色 layui---------------------------------结束
+// 遮罩层-----------------------------------------开始
+.model {
+  position:fixed;
+  width:100%;
+  height:100%;
+  left:0;
+  top:0;
+  background:rgba(0,0,0,0.2);
+  filter:alpha(opacity=50);
+  z-index:4096;
+}
+.model-box {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 8848;
+}
+// 遮罩层-----------------------------------------结束
+// elemnt ui 表格无数据
+.el-table__empty-block {
+  height: 0% !important;
+  min-height: 200px !important;
+  width: 210px !important;
+  margin: 100px auto;
+  background: url("../assets/svg/table.svg") no-repeat center;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1) rotateZ(3deg);
+    transition: all ease 0.3s
+  }
+}
+.el-table__body-wrapper{
+  z-index: 2
+}
+// 防止表格固定列下方多出一条线
+.el-table__fixed-right {
+  height: 100% !important; //设置高优先，以覆盖内联样式
+}
+
+.el-table__empty-text {
+  display: none;
+}
+  // 防止屏幕分辨率缩放时页面加载不过来出现闪动
+.el-table {
+  width: 99.9% !important;
+}
+// 分页
+.paging {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+  margin: 20px 0;
+  background-color: #fff;
+}
+// 水平居中& 垂直居中 以定位的方式
+// ！！！记得在用了此类名的元素 自己设置宽高
+.p-a-center {
+  position: absolute;
+  left: 50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+}
+// 操作日志
+.operation_log {
+  width: 100% !important;
+  tbody>tr,thead{
+    display: table;
+    width: 100%;
+    table-layout: fixed; /* 重要  表格固定算法 */
+  }
+  tbody{
+    height: auto;
+    max-height: 200px;
+    overflow: hidden;
+    display: block;
+    overflow-y: scroll;
+  }
+  thead{
+    width: calc(100% - 17px);
+  }
+  tr {
+    text-align: center;
+    td {
+      padding: 10px 0px;
+      font-size: 14px;
+    }
+  }
+
+}
+// table表格上方查询条件
+.form-query-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 0 20px;
+}
+// 日期选择器开始日期和结束日期中间分隔符
+.el-date-editor .el-range-separator{
+  width: 8%;
+}
+// 详情页头部返回按钮以及标题
+.return-box{
+  height: 50px;
+  line-height: 50px;
+  .return-icon{
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    .icons {
+      font-size: 16px;
+      color: rgba(0, 117, 255, 1);
+    }
+  }
+  .return-title{
+    font-size: 16px;
+  }
+}
+// 水平居中 垂直居中
+
+.cursor{
+  cursor: pointer;
+}
+// 导入苹方字体
+@font-face {
+	font-family:'PingFang-SC-Semibold';
+	//src: url(../font/PingFang-SC-Semibold.ttf);
+	src: url(https://gzadmin.oss-cn-shenzhen.aliyuncs.com/font/PingFang-SC-Semibold.ttf);
+}
+@font-face {
+	font-family:'PingFang-SC-Regular';
+	//src: url(../font/PingFang-SC-Regular.otf);
+	src: url(https://gzadmin.oss-cn-shenzhen.aliyuncs.com/font/PingFang-SC-Regular.otf);
+}
+
+  // 进度条
+  #nprogress .bar {
+    /* background: #29d; */
+    background:#70FDF2 !important;
+    position: fixed;
+    z-index: 1031;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+  }
+
+//  详情打印
+@media print {
+  @page{
+    margin-top: 2mm;
+    margin-bottom: 1mm;
+    //size:  auto;   /* auto is the initial value */
+    //margin: 4mm;
+  }
+  body {
+    height: auto !important;
+    margin: 2mm;
+  }
+}
+.print-detail {
+  table {
+    font-size: 14px;
+    width: 100%;
+    border: 1px solid #EBEEF5;
+    text-align: center;
+    thead {
+      color: #000;
+      th {
+        padding: 12px 0;
+        border-bottom: 1px solid #f3f3f3;
+        border-left: 1px solid #EBEEF5;
+        &:first-child {
+          border-left: none;
+        }
+      }
+    }
+    tbody {
+      tr {
+        color: #606266;
+        td {
+          padding: 12px 0;
+          border-bottom:  1px solid #EBEEF5;
+          border-left: 1px solid #EBEEF5;
+          &:first-child {
+            border-left: none;
+          }
+        }
+        &:nth-last-child(1) {
+          td {
+            border-bottom: none;
+          }
+        }
+        &:hover {
+          background: rgb(245,247,250);
+        }
+      }
+    }
+  }
+}
+// 苹方黑体-纤细-简
+// @font-face {
+// 	font-family:'PingFang-SC-Thin';
+// 	src: url(./PingFang-SC-Thin.ttf);
+// }
+// 苹方黑体-细-简
+// @font-face {
+// 	font-family:'PingFang-SC-Light';
+// 	src: url(./PingFang-SC-Light.ttf);
+// }
+
+*{
+//  font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;
+// font-family: PingFang-SC-Thin !important;
+font-family: PingFang-SC-Regular !important;
+// font-family: PingFang-SC-Light !important;
+}
+.el-form-item__label {
+  font-size: 12px !important;
+}
+.el-tip {
+  padding: 8px 16px;
+  background-color: #ecf8ff;
+  border-radius: 4px;
+  border-left: 5px solid #50bfff;
+  margin: 20px 0
+}
+
+.vxe-table--render-default .vxe-cell {
+  white-space: normal !important;
+}
+.vxe-table--render-default .vxe-table--border-line {
+  z-index: 6 !important;
+}
+
+
+.obvious{
+  width: 100%;
+  height: 50%;
+  opacity: 0.3;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.el-icon-circle-close:before{
+  color: #fff !important;
+}

@@ -1,0 +1,32 @@
+// sidebar
+// $menuText:#bfcbd9;
+$menuText:#333333;
+// $menuActiveText:#409EFF;
+$menuActiveText: #1890FF;
+//$subMenuActiveText:#f4f4f5; //https://github.com/ElemeFE/element/issues/12951
+$subMenuActiveText:#1890FF; //https://github.com/ElemeFE/element/issues/12951
+
+// $menuBg:#304156;
+$menuBg:#fff;
+$menuHover:#E2F1FF;
+// $menuHover:#263445;
+
+// $subMenuBg:#1f2d3d;
+$subMenuBg:#fff;
+// $subMenuHover:#001528;
+$subMenuHover:#E2F1FF;
+//feng 将左侧菜单栏宽度由210px 改为220px
+$sideBarWidth: 220px;
+
+// the :export directive is the magic sauce for webpack
+// https://www.bluematador.com/blog/how-to-share-variables-between-js-and-sass
+:export {
+  menuText: $menuText;
+  menuActiveText: $menuActiveText;
+  subMenuActiveText: $subMenuActiveText;
+  menuBg: $menuBg;
+  menuHover: $menuHover;
+  subMenuBg: $subMenuBg;
+  subMenuHover: $subMenuHover;
+  sideBarWidth: $sideBarWidth;
+}
