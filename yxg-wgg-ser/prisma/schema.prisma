@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = "mysql://root:Wggsrv1024%23@114.117.188.189:3306/db_canteen_web" 
+}
+
+model web_feedback {
+  id       Int     @id @default(autoincrement()) @db.UnsignedInt
+  username String  @db.VarChar(20)
+  phone    String  @db.VarChar(20)
+  msg      String  @db.Text
+  wx_id    String? @db.VarChar(255)
+  in_time  Int?    @db.UnsignedInt
+}
+
+model web_publicity_health {
+  id           Int     @id @default(autoincrement()) @db.UnsignedInt
+  headpic_addr String  @db.VarChar(255)
+  photo_addr   String  @db.VarChar(255)
+  name         String  @db.VarChar(20)
+  job          String  @db.VarChar(20)
+  temperature  Decimal @db.Decimal(6, 2)
+  upload_time  Int     @db.UnsignedInt
+  mark_dedsc   String? @db.VarChar(255)
+  in_time      Int?    @db.UnsignedInt
+  in_woker     String? @db.VarChar(255)
+  state        Int?    @db.TinyInt
+}
+
+model web_publicity_media {
+  id        Int     @id @default(autoincrement()) @db.UnsignedInt
+  category  Int     @db.TinyInt
+  type      Int     @db.TinyInt
+  media_url String  @db.VarChar(255)
+  in_time   Int?    @db.UnsignedInt
+  in_worker String? @db.VarChar(255)
+  state     Int?    @db.TinyInt
+}
